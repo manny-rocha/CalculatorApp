@@ -59,6 +59,13 @@ class Calculator {
     this.previousOperand = "";
   }
 
+  invert() {
+    if (this.currentOperand < 0) return
+    const invertedNumber = `-${this.currentOperand.toString()}`
+    this.currentOperand = invertedNumber;
+
+  }
+
   getDisplayContent(number) {
     const stringifiedNumber = number.toString();
     const integerDigits = parseFloat(stringifiedNumber.split(".")[0]);
@@ -80,7 +87,7 @@ class Calculator {
 
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.getDisplayContent(this.currentOperand)
-    if (this.opperation != null) {
+    if (this.operation != null) {
       this.previousOperandTextElement.innerText = `${this.getDisplayContent(this.previousOperand)} ${this.operation}`
     } else {
       this.previousOperandTextElement.innerText = "";
@@ -91,6 +98,7 @@ class Calculator {
 const numberBtns = document.querySelectorAll('[data-number]');
 const operationBtns = document.querySelectorAll('[data-operation]');
 const equalsBtn = document.querySelector('[data-calculate]');
+const invertBtn = document.querySelector('[data-invert]');
 const deleteBtn = document.querySelector('[data-delete]');
 const allClearBtn = document.querySelector('[data-clear]');
 const previousOperandTextElement = document.querySelector('[data-prev-operand]');
@@ -114,6 +122,11 @@ operationBtns.forEach(button => {
 
 equalsBtn.addEventListener("click", () => {
   calculator.calculate();
+  calculator.updateDisplay();
+})
+
+invertBtn.addEventListener("click", () => {
+  calculator.invert();
   calculator.updateDisplay();
 })
 
