@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after,
+:root,
+body {
+  box-sizing: border-box;
+  font-family: "Poppins", "Roboto", "Ubuntu", "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+body {
+  margin: 30px;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(231, 76, 60);
+  background: -moz-linear-gradient(
+    52deg,
+    rgba(231, 76, 60, 1) 30%,
+    rgba(211, 84, 0, 1) 85%
+  );
+  background: -webkit-linear-gradient(
+    52deg,
+    rgba(231, 76, 60, 1) 30%,
+    rgba(211, 84, 0, 1) 85%
+  );
+  background: linear-gradient(
+    52deg,
+    rgba(231, 76, 60, 1) 30%,
+    rgba(211, 84, 0, 1) 85%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e74c3c",endColorstr="#d35400",GradientType=1);
+}
+
+.calculator-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: #0e1113;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  max-width: 500px;
+  height: 100vh;
+  max-height: 600px;
+}
+
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(6, 100px);
+  position: relative;
+}
+
+.calculator-grid > button {
+  padding: 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #fff;
+  background: #1d2226;
+  border-radius: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.calculator-grid > button:hover {
+  background: #3a434d;
+}
+
+.span-two {
+  grid-column: span 2;
+}
+
+.display {
+  grid-column: span 4;
+  height: 100px;
+  background: #0e1113;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10px;
+  font-size: 2rem;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin: 0;
+  border: 1px solid white;
+}
+
+.display .prev-operand {
+  font-size: 1.5rem;
+  color: #dadddf;
+}
+
+.display .current-operand {
+  text-align: right;
+  padding: 10px 0;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 500px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+}
